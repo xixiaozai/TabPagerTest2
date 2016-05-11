@@ -3,7 +3,6 @@ package com.example.tabviewtest3;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -55,11 +54,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		mbtn2 = (ImageButton) findViewById(R.id.btn_2);
 		mbtn3 = (ImageButton) findViewById(R.id.btn_3);
 		mbtn4 = (ImageButton) findViewById(R.id.btn_4);
+		
 		mFragments = new ArrayList<Fragment>();
 		Fragment mTab01 = new lauout1Fragment();
-		Fragment mTab02 = new lauout1Fragment();
-		Fragment mTab03 = new lauout1Fragment();
-		Fragment mTab04 = new lauout1Fragment();
+		Fragment mTab02 = new lauout2Fragment();
+		Fragment mTab03 = new lauout3Fragment();
+		Fragment mTab04 = new lauout4Fragment();
+		
 		mFragments.add(mTab01);
 		mFragments.add(mTab02);
 		mFragments.add(mTab03);
@@ -82,14 +83,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
 
 			@Override
-			public void onPageSelected(int arg0) {
+			public void onPageSelected(int i) {
 				// TODO Auto-generated method stub
 				int currentItem = mViewPager.getCurrentItem();
 				setTab(currentItem);
 			}
 
 			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
+			public void onPageScrolled(int i, float f, int arg2) {
 				// TODO Auto-generated method stub
 
 			}
@@ -108,6 +109,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		mLayout2.setOnClickListener(this);
 		mLayout3.setOnClickListener(this);
 		mLayout4.setOnClickListener(this);
+		
+		mbtn1.setOnClickListener(this);
+		mbtn2.setOnClickListener(this);
+		mbtn3.setOnClickListener(this);
+		mbtn4.setOnClickListener(this);
 	}
 
 	@Override
@@ -115,16 +121,19 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.btn_1:
+		case R.layout.tab1:
 			setSelect(0);
 			break;
-
 		case R.id.btn_2:
+		case R.layout.tab2:
 			setSelect(1);
 			break;
 		case R.id.btn_3:
+		case R.layout.tab3:
 			setSelect(2);
 			break;
 		case R.id.btn_4:
+		case R.layout.tab4:
 			setSelect(3);
 			break;
 		default:
